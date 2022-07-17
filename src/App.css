@@ -1,7 +1,4 @@
 .app-layout {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 94px 1fr 186px;
-  background-color: black;
-  color: white;
+  display: flex;
+  flex-direction: column;
 }

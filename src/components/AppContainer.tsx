@@ -3,6 +3,7 @@ import ToDoList from './ToDoList'
 import toDo from '../models/toDo'
 import ToDoService from '../services/toDo'
 import Filter from './Filter'
+import classes from './AppContainer.module.scss'
 
 export default function AppContainer() {
   const [todoList, setTodoList] = useState<toDo[]>([])
@@ -13,13 +14,11 @@ export default function AppContainer() {
 
   const loadToDoList = async () => {
     const toDoList = await ToDoService.getToDoList()
-    console.log(toDoList)
-
     setTodoList(toDoList)
   }
 
   return (
-    <div>
+    <div className={classes['app-container']}>
       <Filter />
       <ToDoList items={todoList} />
     </div>

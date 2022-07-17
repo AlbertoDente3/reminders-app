@@ -1,4 +1,22 @@
+@import './variables.scss';
+
 @font-face {
   font-family: 'karbon';
   src: url('fonts/karbon-regular-webfont.woff') format('woff'), url('fonts/karbon-regular-webfont.ttf') format('truetype');
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: karbon;
 }

@@ -1,0 +1,18 @@
+@import './../styles/variables.scss';
+
+.to-do-container {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 110px;
+  align-items: center;
+  padding-left: 37.5px;
+  padding-right: 61.93px;
+  height: 70.5px;
+  border-bottom: solid $blue;
+  img {
+    svg {
+      fill: $blue;
+    }
+  }
+}

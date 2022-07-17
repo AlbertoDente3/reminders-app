@@ -1,0 +1,23 @@
+@import './../styles/variables.scss';
+.header {
+  background: $purple;
+  height: $headerHeight;
+  display: flex;
+  align-items: center;
+
+  &__content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: $desktopMaxWidth;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 57px;
+    img {
+      height: 100%;
+    }
+  }
+}
