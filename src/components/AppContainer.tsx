@@ -52,7 +52,7 @@ export default function AppContainer() {
     loadToDoList()
   }
 
-  const prova = (toDo: toDo): void => {
+  const handleChangeState = (toDo: toDo): void => {
     const list = [...todoList]
     const index = list.indexOf(toDo)
 
@@ -63,7 +63,7 @@ export default function AppContainer() {
   return (
     <div className={classes['app-container']}>
       <Filter items={todoList} onFilterByCompleted={handleFilterByCompleted} onFilterByUserId={handleFilterByUserId} onFilterByWord={(word) => handleFilterByWord(word)} onResetFilter={handleReset} />
-      <ToDoList items={todoList} onToDoStateChange={(toDo: toDo) => prova(toDo)} />
+      <ToDoList items={todoList} onToDoStateChange={(toDo: toDo) => handleChangeState(toDo)} />
     </div>
   )
 }
