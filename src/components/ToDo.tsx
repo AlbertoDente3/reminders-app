@@ -10,7 +10,6 @@ export default function ToDo(props: { toDo: toDo }) {
     return <img src={close} alt="todo-not-completed" />
   }
 
-  console.log(props.toDo)
   return (
     <div className={classes['to-do-container']}>
       <span>{props.toDo.userId}</span>

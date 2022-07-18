@@ -10,13 +10,13 @@ export default function ToDoList({ items }: ToDoListProps) {
   return (
     <div className={classes['list-wrapper']}>
       <div className={classes['list-header']}>
-        {labels.columnNames.map((columnName) => (
-          <div> {columnName} </div>
+        {labels.columnNames.map((columnName, index) => (
+          <div key={index}> {columnName} </div>
         ))}
       </div>
       <div className={classes['list-container']}>
         {items.map((item) => (
-          <ToDo toDo={item} />
+          <ToDo key={item.id} toDo={item} />
         ))}
       </div>
     </div>

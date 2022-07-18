@@ -17,9 +17,19 @@ export default function AppContainer() {
     setTodoList(toDoList)
   }
 
+  const handleFilterByCompleted = () => {
+    const list = todoList.filter((todo) => todo.completed === true)
+    setTodoList(list)
+  }
+
+  const handleFilterByUserId = (id: number) => {
+    const list = todoList.filter((todo) => todo.userId === id)
+    setTodoList(list)
+  }
+
   return (
     <div className={classes['app-container']}>
-      <Filter />
+      <Filter onFilterByCompleted={handleFilterByCompleted} onFilterByUserId={handleFilterByUserId} />
       <ToDoList items={todoList} />
     </div>
   )
