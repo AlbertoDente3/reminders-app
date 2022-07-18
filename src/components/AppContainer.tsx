@@ -22,15 +22,48 @@ export default function AppContainer() {
     setTodoList(list)
   }
 
+  const handleFilterByWord = (word: string) => {
+    console.log(word)
+
+    let flag = false
+    const textInput = word
+    let index = 0
+    const arrayOfSentences = todoList.map((item: toDo) => {
+      return item.title
+    })
+
+    for (let i = 0; i <= arrayOfSentences.length - 1; i++) {
+      if (textInput.includes(arrayOfSentences[i])) {
+        flag = true
+        index = i
+      }
+    }
+    if (flag) {
+      setTodoList([todoList[index]])
+    }
+  }
+
   const handleFilterByUserId = (id: number) => {
     const list = todoList.filter((todo) => todo.userId === id)
     setTodoList(list)
   }
 
+  const handleReset = () => {
+    loadToDoList()
+  }
+
+  const prova = (toDo: toDo): void => {
+    const list = [...todoList]
+    const index = list.indexOf(toDo)
+
+    list[index].completed = !list[index].completed
+    setTodoList(list)
+  }
+
   return (
     <div className={classes['app-container']}>
-      <Filter onFilterByCompleted={handleFilterByCompleted} onFilterByUserId={handleFilterByUserId} />
-      <ToDoList items={todoList} />
+      <Filter items={todoList} onFilterByCompleted={handleFilterByCompleted} onFilterByUserId={handleFilterByUserId} onFilterByWord={(word) => handleFilterByWord(word)} onResetFilter={handleReset} />
+      <ToDoList items={todoList} onToDoStateChange={(toDo: toDo) => prova(toDo)} />
     </div>
   )
 }
