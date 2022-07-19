@@ -17,8 +17,10 @@ export default function AppContainer() {
     setTodoList(toDoList)
   }
 
-  const handleFilterByCompleted = () => {
-    const list = todoList.filter((todo) => todo.completed === true)
+  const handleFilterByCompleted = (switchState: boolean) => {
+    console.log(switchState)
+
+    const list = todoList.filter((todo) => todo.completed === switchState)
     setTodoList(list)
   }
 

@@ -1,7 +1,17 @@
 {
-  "columnNames": [
-    "user id",
-    "title",
-    "completed"
-  ]
+  "eng": {
+    "columnNames": [
+      "user id",
+      "title",
+      "completed"
+    ],
+    "search": "Search...",
+    "filters": "filters",
+    "completed": "completed",
+    "selectUserId": "select user id",
+    "reset": "reset filters"
+  },
+  "it": {
+    "code": "for other language app"
+  }
 }

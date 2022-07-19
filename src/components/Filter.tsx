@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import classes from './Filter.module.scss'
 import search from './../icons/search.png'
 import toDo from '../models/toDo'
+import labels from '../labels/all.json'
 // props: { toDo: toDo }
 interface FilterProps {
-  onFilterByCompleted: () => void
+  onFilterByCompleted: (state: boolean) => void
   onFilterByUserId: (id: number) => void
 
   onFilterByWord: (word: string) => void
@@ -25,30 +26,32 @@ export default function Filter({ onFilterByCompleted, onFilterByUserId, onFilter
     return list
   }
 
-  useEffect(() => {
-    // console.log('eccomi')
-  }, [])
-
-  const [wordToSearch, setwordToSearch] = useState('')
+  const [wordToSearch, setWordToSearch] = useState('')
+  const [switchState, setSwitchState] = useState(false)
 
   const onChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     // No longer need to cast to any - hooray for react!
     onFilterByUserId(Number(e.target.value))
   }
 
+  const onClickOnFilterByCompleted = () => {
+    setSwitchState(!switchState)
+    onFilterByCompleted(switchState)
+  }
+
   return (
     <div className={classes['filter-wrapper']}>
       <div>filters</div>
-      <div className="search-filter">
-        <div onClick={() => onFilterByWord(wordToSearch)}>
+      <div className={classes['search-filter']}>
+        <div onClick={() => onFilterByWord(wordToSearch)} className={classes['search-icon-container']}>
           <img src={search} alt="" />
         </div>
-        <input type="text" onChange={(e) => setwordToSearch(e.target.value)} />
+        <input type="text" onChange={(e) => setWordToSearch(e.target.value)} placeholder={labels['eng'].search} />
       </div>
 
       <div className="toggle-filter">
         <div className="label">completed</div>
-        <div onClick={() => onFilterByCompleted()}>switch</div>
+        <button onClick={() => onClickOnFilterByCompleted()}>switch</button>
       </div>
 
       <select onChange={(e) => onChange(e)} name="userId" id="userId-select">

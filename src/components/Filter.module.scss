@@ -2,4 +2,36 @@
 
 .filter-wrapper {
   background-color: $fg;
+  height: min-content;
+  padding: 22px 25px;
+}
+
+.search-filter {
+  border: solid $purple 2px;
+  display: grid;
+  height: 50px;
+  grid-template-columns: 50px 1fr;
+
+  input {
+    -webkit-appearance: none;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+  }
+
+  input:hover {
+    -webkit-appearance: none;
+    outline: none;
+  }
+}
+
+.search-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $purple;
+  cursor: $pointer;
+  img {
+    height: 25px;
+  }
 }

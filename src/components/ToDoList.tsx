@@ -11,7 +11,7 @@ export default function ToDoList({ items, onToDoStateChange }: ToDoListProps) {
   return (
     <div className={classes['list-wrapper']}>
       <div className={classes['list-header']}>
-        {labels.columnNames.map((columnName, index) => (
+        {labels['eng'].columnNames.map((columnName, index) => (
           <div key={index}> {columnName} </div>
         ))}
       </div>
